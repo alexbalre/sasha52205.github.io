@@ -14,7 +14,6 @@
 }
 
 body{
-  overflow-y: visible;
   overflow-y: scroll;
   max-height: 200%;
   max-width: 100%;
@@ -23,6 +22,7 @@ body{
 }
 
 .login-form{
+  overflow-y: scroll;
   width: 360px;
   background: #f1f1f1;
   height: 1500px;
