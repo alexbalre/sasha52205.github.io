@@ -19,6 +19,9 @@
 }
 
 ::-webkit-scrollbar-track {
+    border-top: 15px solid transparent;
+    border-bottom: 35px solid transparent;
+    background-clip: padding-box;
     height: 10px;
     background: #d4d4d4;
     box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
