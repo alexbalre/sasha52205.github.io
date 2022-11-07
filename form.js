@@ -18,14 +18,14 @@ tg.MainButton.enable()
 // при загрузке страницы (когда DOM готова)
 document.addEventListener('DOMContentLoaded', () => {
   // восстановление ранее сохраненных данных 
-  let savedFormData = localStorage.getElementById('form');
+  let savedFormData = localStorage.getItem('formData');
   alert(savedFormData);
   // пробуем считать JSON-строку с объектом, хранящим введенные пользователем данные
   if (savedFormData) {                                   // если ранее мы ничего не сохранили, getItem вернет null (и тогда условие не выполнится)
     savedFormData = JSON.parse(savedFormData);           // преобразуем JSON-строку с данными в объект 
     // к примеру, у нас есть поля ввода #subject и #message
-    document.getElementById('name').value = savedFormData.subject; 
-    document.getElementById('date').value = savedFormData.message; 
+    document.getElementById('name').value = savedFormData.name; 
+    document.getElementById('date').value = savedFormData.date; 
     localStorage.removeItem('formData');                 // после того как мы восстановили сохраненные данные, удаляем запись в localStorage
   }
 
