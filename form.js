@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedFormData) {                                   // если ранее мы ничего не сохранили, getItem вернет null (и тогда условие не выполнится)
     savedFormData = JSON.parse(savedFormData);           // преобразуем JSON-строку с данными в объект 
     // к примеру, у нас есть поля ввода #subject и #message
-    document.getElementById('subject').value = savedFormData.subject; 
-    document.getElementById('message').value = savedFormData.message; 
+    document.getElementById('name').value = savedFormData.subject; 
+    document.getElementById('date').value = savedFormData.message; 
     localStorage.removeItem('formData');                 // после того как мы восстановили сохраненные данные, удаляем запись в localStorage
   }
 
