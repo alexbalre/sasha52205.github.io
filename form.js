@@ -13,12 +13,14 @@ tg.MainButton.enable()
 
 
 
-Дополню примером:
+
 
 // при загрузке страницы (когда DOM готова)
 document.addEventListener('DOMContentLoaded', () => {
   // восстановление ранее сохраненных данных 
-  let savedFormData = localStorage.getItem('formData');  // пробуем считать JSON-строку с объектом, хранящим введенные пользователем данные
+  let savedFormData = localStorage.getItem('formData');
+  alert('formData')
+  // пробуем считать JSON-строку с объектом, хранящим введенные пользователем данные
   if (savedFormData) {                                   // если ранее мы ничего не сохранили, getItem вернет null (и тогда условие не выполнится)
     savedFormData = JSON.parse(savedFormData);           // преобразуем JSON-строку с данными в объект 
     // к примеру, у нас есть поля ввода #subject и #message
