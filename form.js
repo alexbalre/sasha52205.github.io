@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   	//получааем данные из input
   	form.addEventListener('input', function(event){
+	console.log(event.target.name)
         formData[event.target.name] = event.target.value;
         LS.setItem('formData', JSON.stringify(formData));
     });
