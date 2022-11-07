@@ -11,22 +11,36 @@ tg.MainButton.isActive = true
 tg.MainButton.show()
 tg.MainButton.enable()
 
-document.addEventListener("DOMContentLoaded", function() { // событие загрузки страницы
 
-    // выбираем на странице все элементы типа textarea и input
-    document.querySelectorAll('select, input').forEach(function(e) {
-        // если данные значения уже записаны в sessionStorage, то вставляем их в поля формы
-        // путём этого мы как раз берём данные из памяти браузера, если страница была случайно перезагружена
-        if(e.value == "") e.value = window.localStorage.getItem(e.name, e.value);
-        // на событие ввода данных (включая вставку с помощью мыши) вешаем обработчик
-        e.addEventListener('input', function() {
-            // и записываем в sessionStorage данные, в качестве имени используя атрибут name поля элемента ввода
-            window.localStorage.setItem(e.name, e.value);
-        })
-    })
 
-}); 
+Дополню примером:
 
+// при загрузке страницы (когда DOM готова)
+document.addEventListener('DOMContentLoaded', () => {
+  // восстановление ранее сохраненных данных 
+  let savedFormData = localStorage.getItem('formData');  // пробуем считать JSON-строку с объектом, хранящим введенные пользователем данные
+  if (savedFormData) {                                   // если ранее мы ничего не сохранили, getItem вернет null (и тогда условие не выполнится)
+    savedFormData = JSON.parse(savedFormData);           // преобразуем JSON-строку с данными в объект 
+    // к примеру, у нас есть поля ввода #subject и #message
+    document.getElementById('subject').value = savedFormData.subject; 
+    document.getElementById('message').value = savedFormData.message; 
+    localStorage.removeItem('formData');                 // после того как мы восстановили сохраненные данные, удаляем запись в localStorage
+  }
+
+  // сохранение данных, введенных пользователем 
+  window.addEventListener('beforeunload', e => {           // назначаем слушателя события, которое возникает при уходе со страницы
+    let name = document.getElementById('name').value,   // получаем значения содержимого полей ввода 
+        date  = document.getElementById('date').value; 
+    if (name.length || date.length) {                       // если текст хотя бы в одном из полей ввода не нулевой длины
+      let formData = {                                     // создаем объект, содержащий введенные пользователем данные 
+        name: name, 
+        date: date
+      };
+      // записываем JSON-строку только что созданного объекта с данными
+      localStorage.setItem('formData', JSON.stringify(formData)); 
+    }
+  }); 
+});
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     fio = document.getElementById("name").value;
