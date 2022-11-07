@@ -13,6 +13,7 @@ tg.MainButton.enable()
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    alert('Нажата кнопка, кто спиздил данные?');
     fio = document.getElementById("name").value;
     date = document.getElementById("date").value;
     point = document.getElementById("point").value;
