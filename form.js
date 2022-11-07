@@ -13,20 +13,20 @@ tg.MainButton.enable()
 
 
 document.addEventListener('DOMContentLoaded', function(){
-  let formData = {};
-  const form = document.querySelector('form');
-  const LS = localStorage;
+	let formData = {};
+  	const form = document.querySelector('form');
+  	const LS = localStorage;
 
-  //получааем данные из input
-  form.addEventListener('input', function(event){
+  	//получааем данные из input
+  	form.addEventListener('input', function(event){
 
-  //востановить
-  if (LS.getItem('formData')) {
-      formData = JSON.parse(LS.getItem('formData'));
-      for (let key in formData){
-        form.elements[key].value = formData[key];
-      }
-  }
+  	//востановить
+  	if (LS.getItem('formData')) {
+      		formData = JSON.parse(LS.getItem('formData'));
+      	for (let key in formData){
+       		form.elements[key].value = formData[key];
+      		}
+  	}
 })
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
