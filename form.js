@@ -14,6 +14,7 @@ tg.MainButton.enable()
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     fio = document.getElementById("name").value;
+    alert(fio);
     date = document.getElementById("date").value;
     point = document.getElementById("point").value;
     cash = document.getElementById("cash").value;
