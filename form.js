@@ -13,7 +13,7 @@ tg.MainButton.enable()
 
 
 document.addEventListener('DOMContentLoaded', function(){
-	let formData = {};
+	  let formData = {};
   	const form = document.querySelector('form');
   	const LS = localStorage;
 
@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function(){
   	//востановить
   	if (LS.getItem('formData')) {
       		formData = JSON.parse(LS.getItem('formData'));
-      	for (let key in formData){
-       		form.elements[key].value = formData[key];
+          for (let key in formData){
+            form.elements[key].value = formData[key];
       		}
   	}
 })
