@@ -39,7 +39,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     alert(zp);
 
     
-})
+});
 
 
 
