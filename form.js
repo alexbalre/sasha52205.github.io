@@ -52,26 +52,3 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 });
 
 
-document.addEventListener('DOMContentLoaded', function(){
-    let formData = {};
-    const form = document.getElementById('form');
-    const LS = localStorage;
-
-    //получааем данные из input
-    form.addEventListener('input', function(event){
-        formData[event.target.name] = event.target.value;
-        LS.setItem('formData', JSON.stringify(formData));
-    });
-
-  	//востановить
-    if (LS.getItem('formData')) {
-      	formData = JSON.parse(LS.getItem('formData'));
-        for (let key in formData){
-            form.elements[key].value = formData[key];
-      		}
-  	}
-
-
-
-
-
