@@ -38,8 +38,31 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     zp = document.getElementById("zp").value;
     alert(zp);
 
+    values = {fio: fio,
+	      date: date,
+	      point: point,
+	      stcash: stcash,
+              cash: cash,
+              term: term,
+              qr: qr,
+              amount: amount,
+              fncash: fncash,
+              incas: incas,
+              rash: rash,
+	      zp: zp};
+
+    if (fio ==""){
+        alert('Вы не указали ФИО!');
+    }
+    if (point == "Выберите точку..."){
+        alert('Вы не выбрали точку!');
+    }
+    else{
+        tg.sendData(JSON.stringify(values));
+    }
     
 });
+
 
 
 
