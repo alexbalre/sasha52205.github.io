@@ -14,29 +14,17 @@ tg.MainButton.enable()
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     fio = document.getElementById("name").value;
-    alert(fio);
     date = document.getElementById("date").value;
-    alert(date);
     point = document.getElementById("point").value;
-    alert(point);
     cash = document.getElementById("cash").value;
-    alert(cash);
     term = document.getElementById("term").value;
-    alert(term);
     qr = document.getElementById("qr").value;
-    alert(qr);
     amount = document.getElementById("amount").value;
-    alert(amount);
     stcash = document.getElementById("stcash").value;
-    alert(stcash);
     fncash = document.getElementById("fncash").value;
-    alert(fncash);
     incas = document.getElementById("incas").value;
-    alert(incas);
     rash = document.getElementById("rash").value;
-    alert(rash);
     zp = document.getElementById("zp").value;
-    alert(zp);
 
     values = {fio: fio,
 	      date: date,
@@ -62,6 +50,26 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     }
     
 });
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    let formData = {};
+    const form = document.getElementById('form');
+    const LS = localStorage;
+
+    //получааем данные из input
+    form.addEventListener('input', function(event){
+        formData[event.target.name] = event.target.value;
+        LS.setItem('formData', JSON.stringify(formData));
+    });
+
+  	//востановить
+    if (LS.getItem('formData')) {
+      	formData = JSON.parse(LS.getItem('formData'));
+        for (let key in formData){
+            form.elements[key].value = formData[key];
+      		}
+  	}
 
 
 
