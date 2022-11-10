@@ -14,7 +14,7 @@ tg.MainButton.enable()
 
 document.addEventListener("DOMContentLoaded", function() { // событие загрузки страницы
     // выбираем на странице все элементы типа textarea и input
-    document.querySelectorAll('input').forEach(function(e) {
+    document.querySelectorAll('select, input').forEach(function(e) {
         // если данные значения уже записаны в sessionStorage, то вставляем их в поля формы
         // путём этого мы как раз берём данные из памяти браузера, если страница была случайно перезагружена
         if(e.value === '') e.value = window.sessionStorage.getItem(e.id, e.value);
@@ -64,6 +64,16 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
         alert('Вы не выбрали точку!');
     }
     else{
+	window.localStorage.removeItem('amount');
+	window.localStorage.removeItem('cash');
+	window.localStorage.removeItem('date');
+	window.localStorage.removeItem('fncash');
+	window.localStorage.removeItem('incas');
+	window.localStorage.removeItem('qr');
+	window.localStorage.removeItem('rash');
+	window.localStorage.removeItem('stcash');
+	window.localStorage.removeItem('term');
+	window.localStorage.removeItem('zp');
         tg.sendData(JSON.stringify(values));
     }
     
