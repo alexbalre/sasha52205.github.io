@@ -44,8 +44,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     rash = document.getElementById("rash").value;
     zp = document.getElementById("zp").value;
 
-    values = {fio: fio,
-	      date: date,
+    values = {date: date,
+              fio: fio,
 	      point: point,
 	      stcash: stcash,
               cash: cash,
