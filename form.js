@@ -22,7 +22,14 @@ document.addEventListener('DOMContentLoaded', function(){
         formData[event.target.name] = event.target.value;
         alert(JSON.stringify(formData));
         LS.setItem('formData', JSON.stringify(formData));
-});
+     });
+      	//востановить
+     if (LS.getItem('formData')) {
+      	formData = JSON.parse(LS.getItem('formData'));
+        for (let key in formData){
+            form.elements[key].value = formData[key];
+      		}
+ }
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
