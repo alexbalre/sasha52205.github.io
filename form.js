@@ -43,7 +43,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
     incas = document.getElementById("incas").value;
     rash = document.getElementById("rash").value;
     zp = document.getElementById("zp").value;
-
+    back = document.getElementById("back").value;
+    worktime = document.getElementById("worktime").value;
     values = {date: date,
               fio: fio,
 	      point: point,
@@ -55,7 +56,9 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
               fncash: fncash,
               incas: incas,
               rash: rash,
-	      zp: zp};
+	      zp: zp,
+              back: back,
+              worktime: worktime};
 
     if (fio ==""){
         alert('Вы не указали ФИО!');
@@ -74,6 +77,8 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	window.localStorage.removeItem('stcash');
 	window.localStorage.removeItem('term');
 	window.localStorage.removeItem('zp');
+        window.localStorage.removeItem('back');
+        window.localStorage.removeItem('worktime');
         tg.sendData(JSON.stringify(values));
     }
     
