@@ -14,7 +14,9 @@ tg.MainButton.enable()
 
 document.addEventListener('DOMContentLoaded', function(){
     let formData = {};
+    alert(formData);
     const form = document.getElementById('form');
+    alert(form);
     const LS = localStorage;
 
     //получааем данные из input
