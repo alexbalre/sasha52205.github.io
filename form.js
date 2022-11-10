@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
       	//востановить
      if (LS.getItem('formData')) {
       	formData = JSON.parse(LS.getItem('formData'));
-        for (let key in formData){
-            form.elements[key].value = formData[key];
-      		}
+        alert(formData);
  }
 
 
